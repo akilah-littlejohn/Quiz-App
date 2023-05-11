@@ -1,4 +1,3 @@
-Sure, here's a sample README that explains the Angular quiz application challenge:
 
 # Angular Quiz Application Challenge
 
