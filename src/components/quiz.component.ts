@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-quiz',
-  template:``,
-  styles: [], 
-  standalone:true
+  template: `
+  
+  <h1>Angular Trivia</h1>
+  
+  
+  
+  `,
+  styles: [],
+  standalone: true,
 })
 export class QuizComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
