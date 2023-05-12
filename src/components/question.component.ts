@@ -6,15 +6,15 @@ import {
   Input,
   EventEmitter,
 } from '@angular/core';
-import { QuizService } from 'src/models/quiz.service';
+import { QuizService } from '../models/quiz.service';
 
 @Component({
   selector: 'app-question',
   template: 
   `    
-  <p>{{ question }}</p>
+  <p> {{ question }} </p>
     <label>
-      <input type="radio" name="" [value]="" (change)="optionSelect(option)">
+      <input type="radio" name="" [value]="">
     </label>
 `,
   styles: [],

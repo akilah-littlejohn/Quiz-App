@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatIconModule} from '@angular/material/icon';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatButtonModule} from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { QuestionComponent } from './question.component';
 
 @Component({
   selector: 'app-quiz',
@@ -12,16 +13,19 @@ import {MatButtonModule} from '@angular/material/button';
   
   <h1>Angular Trivia</h1>
   
-  <mat-stepper>
-  <mat-step>
-  
-  </mat-step>
-  
-</mat-stepper>
+ 
   
   `,
   styles: [],
   standalone: true,
-  imports: [ CommonModule, MatStepperModule,MatIconModule, MatRadioModule,MatSnackBarModule,MatButtonModule],
+  imports: [
+    CommonModule,
+    MatStepperModule,
+    MatIconModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    QuestionComponent
+  ],
 })
 export class QuizComponent {}
