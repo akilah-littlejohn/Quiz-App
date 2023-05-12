@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-answer',
+  selector: 'app-question',
   template: ``,
   styles: [],
   standalone:true
 })
-export class AnswerComponent implements OnInit {
+export class QuestionComponent implements OnInit {
 
   constructor() { }
 
