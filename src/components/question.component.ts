@@ -21,7 +21,7 @@ import { QuizService } from '../models/quiz.service';
 })
 export class QuestionComponent implements OnInit {
   quiz = inject<QuizService>(QuizService);
-  @Input() question: string = '';
+  @Input() question: string;
 
   @Output() answerSelected = new EventEmitter<string>();
 
