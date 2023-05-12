@@ -1,17 +1,30 @@
-import { Component, OnInit, inject, Output, Input, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  inject,
+  Output,
+  Input,
+  EventEmitter,
+} from '@angular/core';
 import { MaterialModule } from 'src/material.module';
 import { QuizService } from 'src/models/quiz.service';
 
 @Component({
   selector: 'app-question',
-  template: ``,
+  template: 
+  `    
+  <p>{{ question }}</p>
+    <label>
+      <input type="radio" name="" [value]="" (change)="optionSelect(option)">
+    </label>
+`,
   styles: [],
   standalone: true,
-  imports:[MaterialModule]
+  imports: [MaterialModule],
 })
 export class QuestionComponent implements OnInit {
   quiz = inject<QuizService>(QuizService);
-  @Input()  question:string = ''
+  @Input() question: string = '';
 
   @Output() answerSelected = new EventEmitter<string>();
 
