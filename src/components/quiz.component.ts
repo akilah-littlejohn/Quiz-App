@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MaterialModule } from '../material.module';
 
@@ -12,6 +13,6 @@ import { MaterialModule } from '../material.module';
   `,
   styles: [],
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, CommonModule],
 })
 export class QuizComponent {}
