@@ -13,15 +13,9 @@ import { QuizService } from '../models/quiz.service';
   styles: [],
   standalone: true,
   imports:[
-    
+
   ]
 })
 export class QuizComponent {
-  quiz = inject<QuizService>(QuizService);
 
-  @Output() answerSelected = new EventEmitter<string>();
-
-  optionSelect(option: string) {
-    this.answerSelected.emit(option);
-  }
 }
