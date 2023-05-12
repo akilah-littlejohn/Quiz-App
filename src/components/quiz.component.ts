@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MaterialModule } from '../material.module';
 
 @Component({
   selector: 'app-quiz',
@@ -11,10 +12,6 @@ import { Component } from '@angular/core';
   `,
   styles: [],
   standalone: true,
-  imports:[
-
-  ]
+  imports: [MaterialModule],
 })
-export class QuizComponent {
-
-}
+export class QuizComponent {}
