@@ -12,10 +12,8 @@ import { QuizService } from '../models/quiz.service';
   selector: 'app-question',
   template: 
   `    
-  <p> {{ question }} </p>
-    <label>
-      <input type="radio" name="" [value]="">
-    </label>
+    <p> {{ question }} </p>
+    <label><input type="radio" name="" [value]=""></label>
 `,
   styles: [],
   standalone: true,
