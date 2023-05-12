@@ -13,13 +13,12 @@ import { QuizService } from '../models/quiz.service';
   styles: [],
   standalone: true,
 })
-export class QuizComponent implements OnInit {
-  
+export class QuizComponent {
   quiz = inject<QuizService>(QuizService);
 
   @Output() answerSelected = new EventEmitter<string>();
 
-  ngOnInit() {
-    
+  optionSelect(option: string) {
+    this.answerSelected.emit(option);
   }
 }
