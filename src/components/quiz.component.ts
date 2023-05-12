@@ -1,4 +1,12 @@
-import { Component,OnInit, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+} from '@angular/core';
+import { QuizService } from '../models/quiz.service';
 
 @Component({
   selector: 'app-quiz',
@@ -13,7 +21,11 @@ import { Component,OnInit, EventEmitter, Input, Output } from '@angular/core';
   standalone: true,
 })
 export class QuizComponent implements OnInit {
-  constructor() {}
+
+  quiz = inject<QuizService>(QuizService);
+  @Input() trivia: string = '';
+  @Input() options: string[] = [];
+  @Output() answerSelected = new EventEmitter<string>();
 
   ngOnInit() {}
 }
