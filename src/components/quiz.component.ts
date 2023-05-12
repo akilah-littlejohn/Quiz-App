@@ -12,6 +12,9 @@ import { QuizService } from '../models/quiz.service';
   `,
   styles: [],
   standalone: true,
+  imports:[
+    
+  ]
 })
 export class QuizComponent {
   quiz = inject<QuizService>(QuizService);
