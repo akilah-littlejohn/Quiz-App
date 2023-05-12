@@ -6,7 +6,6 @@ import {
   Input,
   EventEmitter,
 } from '@angular/core';
-import { MaterialModule } from 'src/material.module';
 import { QuizService } from 'src/models/quiz.service';
 
 @Component({
@@ -20,7 +19,7 @@ import { QuizService } from 'src/models/quiz.service';
 `,
   styles: [],
   standalone: true,
-  imports: [MaterialModule],
+  imports: [],
 })
 export class QuestionComponent implements OnInit {
   quiz = inject<QuizService>(QuizService);
