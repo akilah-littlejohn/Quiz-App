@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
-import { QuizService } from '../models/quiz.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-quiz',
