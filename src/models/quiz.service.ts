@@ -51,6 +51,7 @@ export class QuizService {
     },
     {
       id:8,
+
       question: 'What is Angular directive?',
       options: ['A. A reusable UI component', 'B. A service for dependency injection', 'C. A function that modifies the DOM', 'D. A data binding expression'],
       answer: 'C. A function that modifies the DOM'
@@ -59,7 +60,7 @@ export class QuizService {
 #questionIndex = 0;
 #userAnswers:{[choiceNumber:number]:string} = {};
 
-storeAnswer(answer:string){
+checkAnswer(answer:string){
   this.#userAnswers[this.#questionIndex] = answer;
 }
  nextQuestion() {
