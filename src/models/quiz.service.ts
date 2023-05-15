@@ -5,6 +5,7 @@ import { Questions } from './questions';
   providedIn:'root'
 })
 export class QuizService {
+
   triviaQuestions:Questions[] = [
     {
       id:1,
@@ -55,11 +56,21 @@ export class QuizService {
       answer: 'C. A function that modifies the DOM'
     }
   ];
+#questionIndex = 0;
+#userAnswers:{[choiceNumber:number]:string} = {};
 
+storeAnswer(answer:string){
+  this.#userAnswers[this.#questionIndex] = answer;
+}
+ nextQuestion() {
+   this.#questionIndex++;
+ }
   
+ lastQuestion(){
+  return this.#questionIndex === this.triviaQuestions.length -1
+ }
   
-  
-  
+ 
   
   
   
