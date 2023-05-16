@@ -14,4 +14,6 @@ import { Component } from '@angular/core';
   standalone: true,
   
 })
-export class QuizComponent {}
+export class QuizComponent {
+  
+}

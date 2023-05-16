@@ -58,13 +58,13 @@ export class QuizService {
   ];
 
 #questionIndex = 0;
-#userAnswers:{[choiceNumber:number]:string} = {};
+ userAnswers:{[choiceNumber:number]:string} = {};
 
 getTriviaQuestions(){
   return this.triviaQuestions
 }
 checkAnswer(answer:string){
-  this.#userAnswers[this.#questionIndex] = answer;
+  this.userAnswers[this.#questionIndex] = answer;
 }
  nextQuestion() {
    this.#questionIndex++;
