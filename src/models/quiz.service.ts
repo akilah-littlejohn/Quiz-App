@@ -57,8 +57,10 @@ export class QuizService {
       answer: 'C. A function that modifies the DOM'
     }
   ];
+  
 #questionIndex = 0;
 #userAnswers:{[choiceNumber:number]:string} = {};
+
 getTriviaQuestions(){
   return this.triviaQuestions
 }
