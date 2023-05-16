@@ -35,7 +35,7 @@ import { QuizService } from '../models/quiz.service';
   imports: [MatRadioModule, MatSnackBarModule],
 })
 export class QuestionComponent implements OnInit {
-  
+
   quiz = inject<QuizService>(QuizService);
   snackbar = inject<MatSnackBar>(MatSnackBar);
 
