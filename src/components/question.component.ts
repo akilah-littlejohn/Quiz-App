@@ -6,6 +6,7 @@ import {
   Input,
   EventEmitter,
 } from '@angular/core';
+import { Questions } from 'src/models/questions';
 
 
 import { QuizService } from '../models/quiz.service';
@@ -22,9 +23,9 @@ import { QuizService } from '../models/quiz.service';
  
   ],})
 export class QuestionComponent implements OnInit {
-  
+
   quiz = inject<QuizService>(QuizService);
-  @Input() question: string;
+  @Input() question: Questions;
 
   @Output() answerSelected = new EventEmitter<string>();
 
