@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ResultsService } from '../models/results.service';
 
 @Component({
   selector: 'app-quiz',
@@ -12,6 +13,9 @@ import { Component } from '@angular/core';
   `,
   styles: [],
   standalone: true,
+  imports:[
+    ResultsService
+  ]
   
 })
 export class QuizComponent {

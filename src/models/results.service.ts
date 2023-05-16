@@ -9,8 +9,16 @@ export class ResultsService {
   score = 0;
   quizService = inject<QuizService>(QuizService);
 
-  onSelectedAnswer(answer: string) { this.quizService.checkAnswer(answer); }
-  
+  onSelectedAnswer(answer: string) {
+    this.quizService.checkAnswer(answer);
+    if (this.quizService.lastQuestion()) {
+      this.showResult = true;
+      this.score = this.getTriviaScore();
+    } else {
+      this.quizService.nextQuestion();
+    }
+  }
+
   getTriviaScore() {
     let count = 0;
     this.quizService.triviaQuestions.forEach((question, index) => {
@@ -21,5 +29,7 @@ export class ResultsService {
     return (count / this.quizService.triviaQuestions.length) * 100;
   }
 
-  submitTrivia() { this.score = this.getTriviaScore(); }
+  submitTrivia() {
+    this.score = this.getTriviaScore();
+  }
 }
