@@ -75,7 +75,9 @@ checkAnswer(answer:string){
  }
   
  
-  
+ LastStep(stepper: any): boolean {
+  return stepper.selectedIndex === this.triviaQuestions.length - 1;
+}
   
   
 

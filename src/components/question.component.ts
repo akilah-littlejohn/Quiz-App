@@ -6,33 +6,26 @@ import {
   Input,
   EventEmitter,
 } from '@angular/core';
-import { Questions } from 'src/models/questions';
+import { Questions } from '../models/questions';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
-
+import { FormsModule } from '@angular/forms';
 import { QuizService } from '../models/quiz.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-question',
   template: `    
-  <h2>{{ question.question }}</h2>
-  <ul>
-    <li *ngFor="let option of question.options">
-      <label>
-        <input
-          type="radio"
-          [value]="option"
-          [(ngModel)]="selectedAnswer"
-          (change)="optionSelected"
-        />
+  <h3>{{ question.question }}</h3>
+    <mat-radio-group [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
+      <mat-radio-button *ngFor="let option of question.options" [value]="option">
         {{ option }}
-      </label>
-    </li>
-  </ul>
+      </mat-radio-button>
+    </mat-radio-group>
 `,
   styles: [],
   standalone: true,
-  imports: [MatRadioModule, MatSnackBarModule],
+  imports: [MatRadioModule, MatSnackBarModule, FormsModule, CommonModule],
 })
 export class QuestionComponent implements OnInit {
 
@@ -42,8 +35,11 @@ export class QuestionComponent implements OnInit {
   @Input() question: Questions;
   @Output() answerSelected = new EventEmitter<string>();
 
-  selectedAnswer: string;
+  selectedAnswer:any;
 
+  onOptionSelected() {
+    this.answerSelected.emit(this.selectedAnswer);
+  }
   optionSelect() {
     const message = this.selectedAnswer === this.question.answer ? 'Correct' : 'Incorrect';
     this.answerSelected.emit(this.selectedAnswer);

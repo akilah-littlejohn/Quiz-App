@@ -9,14 +9,9 @@ export class ResultsService {
   score = 0;
   quizService = inject<QuizService>(QuizService);
 
-  onSelectedAnswer(answer: string) {
+  onSelectedAnswer(event:any) {
+    const answer: string = event.target.value;
     this.quizService.checkAnswer(answer);
-    if (this.quizService.lastQuestion()) {
-      this.showResult = true;
-      this.score = this.getTriviaScore();
-    } else {
-      this.quizService.nextQuestion();
-    }
   }
 
   getTriviaScore() {
@@ -31,5 +26,7 @@ export class ResultsService {
 
   submitTrivia() {
     this.score = this.getTriviaScore();
+    this.showResult = true;
+
   }
 }
