@@ -52,19 +52,17 @@ section {
     QuestionComponent,
     MatIconModule,
     MatButtonModule,
-    
   ],
 })
 export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
   resultService = inject<ResultsService>(ResultsService);
-  breakpointObserver = inject<BreakpointObserver>(BreakpointObserver)
+  breakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
 
-
-  stepperOrientation$: Observable<any> = this.breakpointObserver.observe(Breakpoints.Handset)
-  .pipe(
-    map(result => result.matches ? 'vertical' : 'horizontal'),
-    startWith('horizontal') // Provide a default value
-  );
-
+  stepperOrientation$: Observable<any> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => (result.matches ? 'vertical' : 'horizontal')),
+      startWith('horizontal') // Provide a default value
+    );
 }
