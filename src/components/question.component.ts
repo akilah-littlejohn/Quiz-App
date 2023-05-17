@@ -47,6 +47,8 @@ export class QuestionComponent implements OnInit {
 
   onOptionSelected() {
     this.answerSelected.emit(this.selectedAnswer);
+    const message = this.selectedAnswer === this.question.answer ? 'Correct' : 'Incorrect';
+    this.openSnackBar(message);
   }
   optionSelect() {
     const message =
@@ -62,6 +64,6 @@ export class QuestionComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   }
-
+  
   ngOnInit() {}
 }
