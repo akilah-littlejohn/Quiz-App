@@ -32,9 +32,4 @@ import { QuestionComponent } from './question.component';
 export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
   resultService = inject<ResultsService>(ResultsService);
-
-  f() {
-    this.resultService.getTriviaScore;
-    this.quizService.LastStep;
-  }
 }
