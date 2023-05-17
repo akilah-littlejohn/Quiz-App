@@ -28,20 +28,20 @@ import { CommonModule } from '@angular/common';
   imports: [MatRadioModule, MatSnackBarModule, FormsModule, CommonModule],
 })
 export class QuestionComponent implements OnInit {
-
   quiz = inject<QuizService>(QuizService);
   snackbar = inject<MatSnackBar>(MatSnackBar);
 
   @Input() question: Questions;
   @Output() answerSelected = new EventEmitter<string>();
 
-  selectedAnswer:any;
+  selectedAnswer: any;
 
   onOptionSelected() {
     this.answerSelected.emit(this.selectedAnswer);
   }
   optionSelect() {
-    const message = this.selectedAnswer === this.question.answer ? 'Correct' : 'Incorrect';
+    const message =
+      this.selectedAnswer === this.question.answer ? 'Correct' : 'Incorrect';
     this.answerSelected.emit(this.selectedAnswer);
     this.openSnackBar(message);
   }
