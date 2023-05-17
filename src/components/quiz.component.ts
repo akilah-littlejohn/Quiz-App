@@ -7,17 +7,17 @@ import { QuizService } from '../models/quiz.service';
 import { ResultsService } from '../models/results.service';
 import { QuestionComponent } from './question.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable, map } from 'rxjs';
+import { Observable, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
   template: `
  <section>
-  <h1 class="container">Angular Trivia</h1>
-  <img *ngIf="!(isMobile$ | async)" class="container" src="https://res.cloudinary.com/akilah/image/upload/c_thumb,w_200,g_face/v1684349674/undraw_quiz_re_aol4_1_wfr7v6.svg" alt="man holding quiz"/>
+  <h1>Angular Trivia</h1>
+  <img src="https://res.cloudinary.com/akilah/image/upload/c_thumb,w_200,g_face/v1684349674/undraw_quiz_re_aol4_1_wfr7v6.svg" alt="man holding quiz"/>
  </section>
   
-  <mat-horizontal-stepper #stepper>
+  <mat-horizontal-stepper [orientation]="stepperOrientation$ | async" #stepper>
   <ng-template matStepperIcon="edit">
 
   </ng-template>
@@ -37,12 +37,11 @@ import { Observable, map } from 'rxjs';
     `
 
 section {
-  padding:20px;
   height: 300px;
   display:flex;
   justify-content:center;
   }
-  
+
   `,
   ],
   standalone: true,
@@ -60,10 +59,11 @@ export class QuizComponent {
   resultService = inject<ResultsService>(ResultsService);
   breakpointObserver = inject<BreakpointObserver>(BreakpointObserver)
 
-  isMobile$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  .pipe(
-    map(result => result.matches)
-  );
 
+  stepperOrientation$: Observable<any> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches ? 'vertical' : 'horizontal'),
+    startWith('horizontal') // Provide a default value
+  );
 
 }
