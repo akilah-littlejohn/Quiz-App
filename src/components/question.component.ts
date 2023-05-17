@@ -28,11 +28,9 @@ import { CommonModule } from '@angular/common';
 `,
   styles: [
     `
-  .radio-btn {
-display: flex;
-flex-direction:column;
-
-
+.radio-btn {
+  display: flex;
+  flex-direction:column;
   }
   `,
   ],
