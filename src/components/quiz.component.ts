@@ -11,23 +11,27 @@ import { QuestionComponent } from './question.component';
   selector: 'app-quiz',
   template: `
   
-  <h1>Angular Trivia</h1>
+  <h1 class="container">Angular Trivia</h1>
+ 
   <mat-horizontal-stepper  #stepper>
-      <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
-        <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
-        <div class="actions">
-          <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
-          <button mat-button *ngIf="quizService.LastStep(stepper)" (click)="resultService.submitTrivia()">Submit</button>
-        </div>
-      </mat-step>
-    </mat-horizontal-stepper>
+  <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
+    <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
+    <div class="actions">
+      <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
+      <button mat-button *ngIf="quizService.LastStep(stepper)" (click)="resultService.submitTrivia()">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+  
+ 
 
  
   
   `,
   styles: [
     `
-  h1 {
+
+  .container {
     display: flex;
     justify-content: center;
   }
