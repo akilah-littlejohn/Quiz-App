@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
 import { Questions } from './questions';
 
 @Injectable({
@@ -102,7 +103,7 @@ export class QuizService {
     return this.#questionIndex === this.triviaQuestions.length - 1;
   }
 
-  LastStep(stepper: any): boolean {
+  LastStep(stepper:MatStepper): boolean {
     return stepper.selectedIndex === this.triviaQuestions.length - 1;
   }
 }
