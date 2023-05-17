@@ -18,18 +18,19 @@ import { Observable, map, startWith } from 'rxjs';
  </section>
   
   <mat-horizontal-stepper [orientation]="stepperOrientation$ | async" #stepper>
-  <ng-template matStepperIcon="edit">
 
-  </ng-template>
+  <ng-template matStepperIcon="edit"></ng-template>
 
   <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
-  
     <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
+
     <div class="actions">
       <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
       <button mat-button *ngIf="quizService.LastStep(stepper)" (click)="resultService.submitTrivia()">Submit</button>
     </div>
+    
   </mat-step>
+
 </mat-horizontal-stepper> 
 
   `,
