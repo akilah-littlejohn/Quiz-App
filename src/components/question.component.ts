@@ -16,18 +16,23 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-question',
   template: `    
+ 
   <h3>{{ question.question }}</h3>
-    <mat-radio-group class="radio-btn" [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
-      <mat-radio-button *ngFor="let option of question.options" [value]="option">
-        {{ option }}
-      </mat-radio-button>
-    </mat-radio-group>
+  <mat-radio-group class="radio-btn" [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
+    <mat-radio-button *ngFor="let option of question.options" [value]="option">
+      {{ option }}
+    </mat-radio-button>
+  </mat-radio-group>
+  
+
 `,
   styles: [
     `
   .radio-btn {
 display: flex;
 flex-direction:column;
+
+
   }
   `,
   ],
