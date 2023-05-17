@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: ``,
   styles: [],
   standalone:true,
+
 })
 export class ResultComponent implements OnInit {
 

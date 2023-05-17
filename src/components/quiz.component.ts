@@ -6,40 +6,48 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { QuizService } from '../models/quiz.service';
 import { ResultsService } from '../models/results.service';
 import { QuestionComponent } from './question.component';
-
 @Component({
   selector: 'app-quiz',
   template: `
-  
+ <section>
   <h1 class="container">Angular Trivia</h1>
- 
-  <mat-horizontal-stepper  #stepper>
+  <img class="container" src="https://res.cloudinary.com/akilah/image/upload/c_thumb,w_200,g_face/v1684349674/undraw_quiz_re_aol4_1_wfr7v6.svg" alt="man holding quiz"/>
+ </section>
+  
+  <mat-horizontal-stepper #stepper>
+  <ng-template matStepperIcon="edit">
+
+  </ng-template>
+
   <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
+  
     <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
     <div class="actions">
       <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
       <button mat-button *ngIf="quizService.LastStep(stepper)" (click)="resultService.submitTrivia()">Submit</button>
     </div>
   </mat-step>
-</mat-horizontal-stepper>
-  
- 
+</mat-horizontal-stepper> 
 
- 
-  
   `,
   styles: [
     `
-
-  .container {
-    display: flex;
-    justify-content: center;
+section {
+  padding:20px;
+  height: 300px;
+  display:flex;
+  justify-content:center;
   }
-
   `,
   ],
   standalone: true,
-  imports: [CommonModule, MatStepperModule, QuestionComponent, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatStepperModule,
+    QuestionComponent,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
 export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
