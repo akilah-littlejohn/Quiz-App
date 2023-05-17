@@ -6,6 +6,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { QuizService } from '../models/quiz.service';
 import { ResultsService } from '../models/results.service';
 import { QuestionComponent } from './question.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-quiz',
   template: `
@@ -32,12 +34,14 @@ import { QuestionComponent } from './question.component';
   `,
   styles: [
     `
+
 section {
   padding:20px;
   height: 300px;
   display:flex;
   justify-content:center;
   }
+  
   `,
   ],
   standalone: true,
