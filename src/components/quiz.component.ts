@@ -7,13 +7,14 @@ import { QuizService } from '../models/quiz.service';
 import { ResultsService } from '../models/results.service';
 import { QuestionComponent } from './question.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
   template: `
  <section>
   <h1 class="container">Angular Trivia</h1>
-  <img class="container" src="https://res.cloudinary.com/akilah/image/upload/c_thumb,w_200,g_face/v1684349674/undraw_quiz_re_aol4_1_wfr7v6.svg" alt="man holding quiz"/>
+  <img *ngIf="!(isMobile$ | async)" class="container" src="https://res.cloudinary.com/akilah/image/upload/c_thumb,w_200,g_face/v1684349674/undraw_quiz_re_aol4_1_wfr7v6.svg" alt="man holding quiz"/>
  </section>
   
   <mat-horizontal-stepper #stepper>
@@ -51,9 +52,18 @@ section {
     QuestionComponent,
     MatIconModule,
     MatButtonModule,
+    
   ],
 })
 export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
   resultService = inject<ResultsService>(ResultsService);
+  breakpointObserver = inject<BreakpointObserver>(BreakpointObserver)
+
+  isMobile$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches)
+  );
+
+
 }
