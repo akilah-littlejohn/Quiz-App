@@ -13,7 +13,7 @@ import { QuestionComponent } from './question.component';
   <h1>Angular Trivia</h1>
   <mat-vertical-stepper  #stepper>
       <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
-        <ng-template matStepLabel>Question {{ i + 1 }}</ng-template>
+        <ng-template matStepLabel>Question {{ i + 1}}</ng-template>
         <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
         <div class="actions">
           <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
@@ -32,4 +32,5 @@ import { QuestionComponent } from './question.component';
 export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
   resultService = inject<ResultsService>(ResultsService);
+
 }

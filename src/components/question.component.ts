@@ -17,13 +17,20 @@ import { CommonModule } from '@angular/common';
   selector: 'app-question',
   template: `    
   <h3>{{ question.question }}</h3>
-    <mat-radio-group [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
+    <mat-radio-group class="radio-btn" [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
       <mat-radio-button *ngFor="let option of question.options" [value]="option">
         {{ option }}
       </mat-radio-button>
     </mat-radio-group>
 `,
-  styles: [],
+  styles: [
+    `
+  .radio-btn {
+display: flex;
+flex-direction:column;
+  }
+  `,
+  ],
   standalone: true,
   imports: [MatRadioModule, MatSnackBarModule, FormsModule, CommonModule],
 })
