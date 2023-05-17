@@ -27,13 +27,11 @@ import { CommonModule } from '@angular/common';
 
 `,
   styles: [
-    `
- 
+`
 .radio-btn {
   display: flex;
-  flex-direction:column;
- 
-  `,
+  flex-direction:column; 
+`,
   ],
   standalone: true,
   imports: [MatRadioModule, MatSnackBarModule, FormsModule, CommonModule],
