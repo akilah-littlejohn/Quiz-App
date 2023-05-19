@@ -20,7 +20,7 @@ import { ResultsService } from '../models/results.service';
   <h1>You Scored {{this.results.score }} % </h1>
 
   <section>
-  <button mat-raised-button color="primary">Retake Trivia!</button>
+  <button mat-raised-button color="primary">Retake It?</button>
 
 
 
