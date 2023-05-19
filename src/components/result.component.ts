@@ -5,15 +5,11 @@ import { ResultsService } from '../models/results.service';
   selector: 'app-result',
   template: ` <h1>You Scored {{this.rs.score }} </h1>`,
   styles: [],
-  standalone:true,
-  imports:[]
-
+  standalone: true,
+  imports: [],
 })
 export class ResultComponent implements OnInit {
+  constructor(public rs: ResultsService) {}
 
-  constructor(public rs:ResultsService) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
