@@ -38,11 +38,6 @@ import { ResultComponent } from './result.component';
   styles: [
     `
 
-section {
-  height: 300px;
-  display:flex;
-  justify-content:center;
-  }
 
   `,
   ],

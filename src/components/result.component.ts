@@ -6,6 +6,7 @@ import { ResultsService } from '../models/results.service';
 @Component({
   selector: 'app-result',
   template: ` 
+  <section>
   <h3>
   {{ this.results.score >= 70 ? 'Great Job!' : 'Sorry, You Probably Should Study More.'}}
 </h3>
@@ -18,14 +19,24 @@ import { ResultsService } from '../models/results.service';
 
   <h1>You Scored {{this.results.score }} % </h1>
 
+  <section>
   <button mat-raised-button color="primary">Retake Trivia!</button>
+
 
 
   `,
   styles: [
     `
+    section {
+      height: 300px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      }
+    
   button {
     font-size:1em
+    padding:2em;
   }
 
   img {
