@@ -1,11 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { ResultsService } from '../models/results.service';
 
 @Component({
   selector: 'app-result',
   template: ` 
-  <h1>You Scored {{this.results.score }} </h1>
+  <h1>You Scored {{this.results.score }} % </h1>
   <button mat-raised-button color="primary">Retake Trivia!</button>
 
 
