@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultsService } from '../models/results.service';
 
 @Component({
   selector: 'app-result',
-  template: ``,
+  template: ` <h1>You Scored {{this.rs.score }} </h1>`,
   styles: [],
   standalone:true,
+  imports:[]
 
 })
 export class ResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(public rs:ResultsService) { }
 
   ngOnInit() {
   }

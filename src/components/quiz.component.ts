@@ -8,6 +8,7 @@ import { ResultsService } from '../models/results.service';
 import { QuestionComponent } from './question.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map, startWith } from 'rxjs';
+import { ResultComponent } from './result.component';
 
 @Component({
   selector: 'app-quiz',
@@ -32,7 +33,7 @@ import { Observable, map, startWith } from 'rxjs';
   </mat-step>
 
 </mat-horizontal-stepper> 
-
+<app-result></app-result>
   `,
   styles: [
     `
@@ -50,6 +51,7 @@ section {
     CommonModule,
     MatStepperModule,
     QuestionComponent,
+    ResultComponent,
     MatIconModule,
     MatButtonModule,
   ],
