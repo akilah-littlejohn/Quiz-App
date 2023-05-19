@@ -11,21 +11,23 @@ export class ResultsService {
 
   onSelectedAnswer(selectedAnswer: string) {
     this.quizService.checkAnswer(selectedAnswer);
-    console.log(selectedAnswer)
   }
 
   getTriviaScore() {
     let count = 0;
     this.quizService.triviaQuestions.forEach((question, index) => {
-      if (this.quizService.userAnswers[index] === question.answer) {
+      if (this.quizService.allUserAnswers[index] === question.answer) {
         count++;
       }
     });
-    return (count / this.quizService.triviaQuestions.length) * 100;
+   this.score = (count / this.quizService.triviaQuestions.length) * 100;
+   
   }
 
   submitTrivia() {
-    this.score = this.getTriviaScore();
     this.showResult = true;
+    this.getTriviaScore()
+    console.log(this.quizService.allUserAnswers)
+
   }
 }

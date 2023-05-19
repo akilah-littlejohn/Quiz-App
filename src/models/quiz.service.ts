@@ -88,23 +88,26 @@ export class QuizService {
 
   #questionIndex = 0;
   userAnswers: { [choiceNumber: number]: string } = {};
+  allUserAnswers:any = []
 
   getTriviaQuestions() {
     return this.triviaQuestions;
   }
-  checkAnswer(answer: string) {
-    this.userAnswers[this.#questionIndex] = answer;
-    console.log(this.userAnswers)
+  checkAnswer(answer: string):void {
+  console.log(answer)
+  this.userAnswers = answer
+  this.allUserAnswers.push(this.userAnswers)
   }
   nextQuestion() {
     this.#questionIndex++;
   }
 
   lastQuestion() {
-    return this.#questionIndex === this.triviaQuestions.length - 1;
+ this.#questionIndex === this.triviaQuestions.length - 1;
   }
 
   LastStep(stepper:MatStepper): boolean {
     return stepper.selectedIndex === this.triviaQuestions.length - 1;
+
   }
 }
