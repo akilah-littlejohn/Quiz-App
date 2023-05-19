@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
 
 `,
   styles: [
-`
+    `
 .radio-btn {
   display: flex;
   flex-direction:column; 
@@ -47,11 +47,10 @@ export class QuestionComponent implements OnInit {
 
   onOptionSelected() {
     this.answerSelected.emit(this.selectedAnswer);
-    const message = this.selectedAnswer === this.question.answer ? 'Correct' : 'Incorrect';
+    const message =
+      this.selectedAnswer === this.question.answer ? 'Correct' : 'Incorrect';
     this.openSnackBar(message);
-
   }
-
 
   openSnackBar(message: string) {
     this.snackbar.open(message, '', {
@@ -60,7 +59,6 @@ export class QuestionComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   }
-  
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
 }
