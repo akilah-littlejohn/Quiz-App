@@ -67,5 +67,4 @@ export class QuizComponent {
       map((result) => (result.matches ? 'vertical' : 'horizontal')),
       startWith('horizontal') // Provide a default value
     );
-
 }
