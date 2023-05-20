@@ -23,11 +23,7 @@ export class ResultsService {
    this.score = (count / this.quizService.triviaQuestions.length) * 100;
    
   }
-  userResults(){
-    if(this.showResult){
-      
-    }
-  }
+  
   submitTrivia() {
     this.showResult = true;
     this.getTriviaScore()

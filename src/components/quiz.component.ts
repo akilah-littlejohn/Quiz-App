@@ -9,7 +9,8 @@ import { QuestionComponent } from './question.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map, startWith } from 'rxjs';
 import { ResultComponent } from './result.component';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-quiz',
@@ -35,10 +36,8 @@ import { RouterModule } from '@angular/router';
  </mat-step>
 
 </mat-horizontal-stepper> 
-<app-result></app-result>
-
 </main>
-
+<app-result *ngIf="resultService.showResult"></app-result>
   `,
   styles: [
     `
@@ -59,7 +58,7 @@ section {
     ResultComponent,
     MatIconModule,
     MatButtonModule,
-    RouterModule
+    RouterOutlet
   ],
 })
 export class QuizComponent {
