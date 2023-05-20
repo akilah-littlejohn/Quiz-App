@@ -9,31 +9,36 @@ import { QuestionComponent } from './question.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, map, startWith } from 'rxjs';
 import { ResultComponent } from './result.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
   template: `
- <section>
+  <main *ngIf="!resultService.showResult">
+ <section >
   <h1>Angular Trivia</h1>
   <img src="https://res.cloudinary.com/akilah/image/upload/c_thumb,w_200,g_face/v1684349674/undraw_quiz_re_aol4_1_wfr7v6.svg" alt="man holding quiz"/>
  </section>
-  
-  <mat-horizontal-stepper [orientation]="stepperOrientation$ | async" #stepper>
 
-  <ng-template matStepperIcon="edit"></ng-template>
+ <mat-horizontal-stepper   [orientation]="stepperOrientation$ | async" #stepper>
 
-  <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
-    <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
+ <ng-template matStepperIcon="edit"></ng-template>
 
-    <div class="actions">
-      <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
-      <button mat-button *ngIf="quizService.LastStep(stepper)" (click)="resultService.submitTrivia()">Submit</button>
-    </div>
-    
-  </mat-step>
+ <mat-step *ngFor="let question of quizService.getTriviaQuestions(); let i = index">
+   <app-question [question]="question" (answerSelected)="resultService.onSelectedAnswer($event)"></app-question>
+
+   <div class="actions">
+     <button mat-button *ngIf="!quizService.LastStep(stepper)" (click)="stepper.next()">Next</button>
+     <button mat-button *ngIf="quizService.LastStep(stepper)" (click)="resultService.submitTrivia()">Submit</button>
+   </div>
+   
+ </mat-step>
 
 </mat-horizontal-stepper> 
 <app-result></app-result>
+
+</main>
+
   `,
   styles: [
     `
@@ -54,13 +59,16 @@ section {
     ResultComponent,
     MatIconModule,
     MatButtonModule,
+    RouterModule
   ],
 })
 export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
   resultService = inject<ResultsService>(ResultsService);
   breakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
+constructor(){
 
+}
   stepperOrientation$: Observable<any> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
