@@ -9,7 +9,7 @@ import {
 import { Questions } from '../models/questions';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 import { QuizService } from '../models/quiz.service';
 import { CommonModule } from '@angular/common';
@@ -17,13 +17,15 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-question',
   template: `    
- 
-  <h3>{{ question.question }}</h3>
-  <mat-radio-group class="radio-btn" [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
-    <mat-radio-button *ngFor="let option of question.options" [value]="option">
-      {{ option }}
-    </mat-radio-button>
-  </mat-radio-group>
+
+ <h3>{{ question.question }}</h3>
+ <mat-radio-group  class="radio-btn" [(ngModel)]="selectedAnswer" (ngModelChange)="onOptionSelected()">
+   <mat-radio-button *ngFor="let option of question.options" [value]="option">
+     {{ option }}
+   </mat-radio-button>
+ </mat-radio-group>
+
+
   
 
 `,
@@ -43,7 +45,6 @@ export class QuestionComponent implements OnInit {
 
   @Input() question: Questions;
   @Output() answerSelected = new EventEmitter<string>();
-
   selectedAnswer: any;
 
   onOptionSelected() {
@@ -60,6 +61,8 @@ export class QuestionComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   }
-
+  resetSelection() {
+    this.selectedAnswer = null;
+  }
   ngOnInit() {}
 }

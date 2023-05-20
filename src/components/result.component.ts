@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ResultsService } from '../models/results.service';
+import { QuizComponent } from './quiz.component';
 
 @Component({
   selector: 'app-result',
@@ -20,9 +21,8 @@ import { ResultsService } from '../models/results.service';
   <h1>You Scored {{this.results.score }} % </h1>
 
   <section>
-  <button mat-raised-button color="primary">Retake It?</button>
-
-
+  <button mat-raised-button color="primary" (click)="quiz.resetQuiz()">Retake It?</button>
+  </section>
 
   `,
   styles: [
@@ -50,6 +50,7 @@ import { ResultsService } from '../models/results.service';
 })
 export class ResultComponent implements OnInit {
   results = inject<ResultsService>(ResultsService);
+  quiz = inject<QuizComponent>(QuizComponent);
 
   ngOnInit() {}
 }

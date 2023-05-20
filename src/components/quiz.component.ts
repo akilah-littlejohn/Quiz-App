@@ -65,13 +65,19 @@ export class QuizComponent {
   quizService = inject<QuizService>(QuizService);
   resultService = inject<ResultsService>(ResultsService);
   breakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
-constructor(){
+  selectedAnswer: any;
 
-}
+  constructor(){}
+
   stepperOrientation$: Observable<any> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
       map((result) => (result.matches ? 'vertical' : 'horizontal')),
       startWith('horizontal') // Provide a default value
     );
-}
+
+  resetQuiz() {
+    this.selectedAnswer = null;
+    this.resultService.showResult = false
+  }
+} 
