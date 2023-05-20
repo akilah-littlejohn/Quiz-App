@@ -79,5 +79,6 @@ export class QuizComponent {
   resetQuiz() {
     this.selectedAnswer = null;
     this.resultService.showResult = false
+    this.resultService.getTriviaScore()
   }
 } 
