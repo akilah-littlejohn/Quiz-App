@@ -27,7 +27,6 @@ export class ResultsService {
   submitTrivia() {
     this.showResult = true;
     this.getTriviaScore()
-    console.log(this.quizService.allUserAnswers)
 
   }
 }

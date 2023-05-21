@@ -94,7 +94,6 @@ export class QuizService {
     return this.triviaQuestions;
   }
   checkAnswer(answer: string):void {
-  console.log(answer)
   this.userAnswers = answer
   this.allUserAnswers.push(this.userAnswers)
   }
